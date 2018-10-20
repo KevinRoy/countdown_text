@@ -1,7 +1,7 @@
 # countdown_text
 
 A Flutter plugin about countdown
-###初始化
+### 初始化
 ```dart
 class _MyAppState extends State<MyApp> {
   @override
@@ -24,7 +24,9 @@ class _MyAppState extends State<MyApp> {
   }
 }
 ```
-###属性值
+<img src="http://ww1.sinaimg.cn/large/5dfcd11agy1fwew27yw3pj20ju0z6q58.jpg" width="299" hegiht="522" align=center />
+
+### 属性值
 | 属性        | 说明           |
 | ------------- |:-------------:|
 | width      | 宽度 |
@@ -35,7 +37,6 @@ class _MyAppState extends State<MyApp> {
 | disabledColor | 按钮点击后不可用状态背景颜色 |
 | textColor | 字体大小 |
 | fontSize | 字体颜色 |
-
 
 ```dart
 class _MyAppState extends State<MyApp> {
@@ -66,11 +67,11 @@ class _MyAppState extends State<MyApp> {
   }
 }
 ```
-###tips
-> * onPressed 有时候会遇到手机号不对，抑或没有输入手机号等等，当不执行倒计时，此时返回false
 
-![](http://ww1.sinaimg.cn/large/5dfcd11agy1fwew27yw3pj20ju0z6q58.jpg)
-![](http://ww1.sinaimg.cn/large/5dfcd11agy1fwew31juluj20ka0zu76o.jpg)
+<img src="http://ww1.sinaimg.cn/large/5dfcd11agy1fwew31juluj20ka0zu76o.jpg" width="299" hegiht="522" align=center />
+
+### Tips
+> * onPressed 有时候会遇到手机号不对，抑或没有输入手机号等等，当不执行倒计时，此时返回false
 
 ## Getting Started
 
