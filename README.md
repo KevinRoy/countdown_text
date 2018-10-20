@@ -24,7 +24,9 @@ class _MyAppState extends State<MyApp> {
   }
 }
 ```
-![picture](https://github.com/KevinRoy/countdown_text/blob/master/screenshots/screen1.png)
+![](http://ww1.sinaimg.cn/large/5dfcd11agy1fwew27yw3pj20ju0z6q58.jpg)
+
+
 ###属性值
 | 属性        | 说明           |
 | ------------- |:-------------:|
@@ -36,7 +38,6 @@ class _MyAppState extends State<MyApp> {
 | disabledColor | 按钮点击后不可用状态背景颜色 |
 | textColor | 字体大小 |
 | fontSize | 字体颜色 |
-
 
 
 ```dart
@@ -68,7 +69,8 @@ class _MyAppState extends State<MyApp> {
   }
 }
 ```
-![picture](https://github.com/KevinRoy/countdown_text/blob/master/screenshots/screen2.png)
+![](http://ww1.sinaimg.cn/large/5dfcd11agy1fwew31juluj20ka0zu76o.jpg)
+
 ###tips
 > * onPressed 有时候会遇到手机号不对，抑或没有输入手机号等等，当不执行倒计时，此时返回false
 
