@@ -37,6 +37,8 @@ class _MyAppState extends State<MyApp> {
 | textColor | 字体大小 |
 | fontSize | 字体颜色 |
 
+
+
 ```dart
 class _MyAppState extends State<MyApp> {
   @override
