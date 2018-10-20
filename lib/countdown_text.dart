@@ -3,10 +3,30 @@ import 'package:flutter/material.dart';
 typedef OnPressedCallback = bool Function();
 
 class CountdownText extends StatefulWidget {
-  OnPressedCallback onPressed;
-  String defaultTitle;
+  final OnPressedCallback onPressed;
+  final String title;
+  final double width;
+  final double height;
+  final int count;
+  final double radius;
+  final Color color;
+  final Color disabledColor;
+  final Color textColor;
+  final double fontSize;
 
-  CountdownText({this.defaultTitle, this.onPressed});
+  CountdownText(this.title,
+      {Key key,
+      this.width,
+      this.height,
+      this.onPressed,
+      this.count,
+      this.radius,
+      this.color,
+      this.disabledColor,
+      this.textColor,
+      this.fontSize})
+      : assert(title != null),
+        super(key: key);
 
   @override
   State<StatefulWidget> createState() {
@@ -16,14 +36,30 @@ class CountdownText extends StatefulWidget {
 
 class CountdownTextState extends State<CountdownText>
     with TickerProviderStateMixin {
-  static const int COUNT = 10;
-  int count = COUNT;
+  static const int COUNT = 60;
+  static const double RADIUS = 6.0;
+  static const double FONTSIZE = 14.0;
+  static const Color TEXTCOLOR = Color(0xffffffff);
+
+  int count;
   AnimationController _controller;
   bool isClick;
+  double radius;
+  Color color;
+  Color disabledColor;
+  Color textColor;
+  double fontSize;
 
   @override
   void initState() {
     isClick = true;
+
+    count = widget.count ?? COUNT;
+    radius = widget.radius ?? RADIUS;
+    color = widget.color ?? Colors.blue;
+    disabledColor = widget.disabledColor ?? Colors.grey;
+    textColor = widget.textColor ?? TEXTCOLOR;
+    fontSize = widget.fontSize ?? FONTSIZE;
 
     _controller = new AnimationController(
       vsync: this,
@@ -56,25 +92,27 @@ class CountdownTextState extends State<CountdownText>
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 110.0,
-      height: 45.0,
+      width: widget.width,
+      height: widget.height,
       child: new RaisedButton(
         onPressed: isClick ? _onPressVoidCallback : null,
-        color: Colors.blue,
-        disabledColor: Colors.grey,
+        color: color,
+        disabledColor: disabledColor,
         child: new Padding(
           padding: new EdgeInsets.symmetric(vertical: 13.0),
           child: new Countdown(
-            title: widget.defaultTitle,
+            title: widget.title,
             isClick: isClick,
             animation: new StepTween(
               begin: count,
               end: 0,
             ).animate(_controller),
+            textColor: textColor,
+            fontSize: fontSize,
           ),
         ),
         shape: new RoundedRectangleBorder(
-          borderRadius: new BorderRadius.circular(6.0),
+          borderRadius: new BorderRadius.circular(radius),
         ),
       ),
     );
@@ -82,18 +120,27 @@ class CountdownTextState extends State<CountdownText>
 }
 
 class Countdown extends AnimatedWidget {
-  Countdown({Key key, this.animation, this.title, this.isClick})
-      : super(key: key, listenable: animation);
   Animation<int> animation;
   String title;
   bool isClick;
+  Color textColor;
+  double fontSize;
+
+  Countdown(
+      {Key key,
+      this.animation,
+      this.title,
+      this.isClick,
+      this.textColor,
+      this.fontSize})
+      : super(key: key, listenable: animation);
 
   @override
   Widget build(BuildContext context) {
     return new Text(
       isClick ? title : '${animation.value.toString()}s',
       textAlign: TextAlign.center,
-      style: new TextStyle(color: Color(0xffffffff), fontSize: 14.0),
+      style: new TextStyle(color: textColor, fontSize: fontSize),
     );
   }
 }

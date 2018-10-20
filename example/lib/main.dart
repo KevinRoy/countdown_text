@@ -18,7 +18,14 @@ class _MyAppState extends State<MyApp> {
         ),
         body: new Center(
           child: CountdownText(
-            defaultTitle: '获取验证码',
+            '获取验证码',
+            count: 10,
+            textColor: Colors.deepOrange,
+            fontSize: 20.0,
+            color: Colors.amber,
+            radius: 20.0,
+            disabledColor: Colors.black,
+            width: 200.0,
             onPressed: () {
               return true;
             },
